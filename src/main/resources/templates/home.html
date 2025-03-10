@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Book Store</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    /* Navbar Styling */
+    .navbar {
+      background-color: #1e3a8a;
+      padding: 12px 0;
+    }
+
+    .navbar-brand {
+      color: white;
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+
+    .navbar-brand i {
+      color: #ffcc00;
+      margin-right: 8px;
+    }
+
+    .navbar-nav .nav-link {
+      color: white;
+      font-size: 1rem;
+      margin-right: 15px;
+    }
+
+    .navbar-nav .nav-link.active {
+      font-weight: bold;
+      color: #ffcc00 !important;
+    }
+
+    .btn-register {
+      background-color: #ff8c00;
+      color: white;
+      font-weight: bold;
+      padding: 8px 15px;
+      border-radius: 25px;
+      text-decoration: none;
+      transition: 0.3s ease-in-out;
+    }
+
+    .btn-register i {
+      margin-right: 5px;
+    }
+
+    .btn-register:hover {
+      background-color: #e07b00;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      background: linear-gradient(to bottom, #1e3a8a, #3b82f6, #4a90e2);
+      color: white;
+      padding: 80px 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-heading {
+      font-size: 3rem;
+      font-weight: bold;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 5px;
+    }
+
+    .hero-heading .fade-text {
+      color: rgba(255, 255, 255, 0.85);
+      font-weight: 500;
+      font-size: 2.5rem;
+      display: block;
+    }
+
+    .hero-heading .highlight {
+      color: #ffcc00;
+      font-weight: bold;
+      font-size: 3rem;
+      display: block;
+      margin-top: 5px;
+    }
+
+    .hero-section p {
+      font-size: 1.2rem;
+      color: #f0f0f0;
+      margin-bottom: 20px;
+    }
+
+    .hero-section .btn-primary {
+      background-color: #ffcc00;
+      border: none;
+      color: #1e3a8a;
+      font-weight: bold;
+      padding: 12px 20px;
+      border-radius: 30px;
+      transition: 0.3s ease-in-out;
+    }
+
+    .hero-section .btn-primary:hover {
+      background-color: #e6b800;
+      transform: scale(1.05);
+    }
+
+    /* Image Styling */
+    .image-wrapper {
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-image {
+      width: 100%;
+      max-width: 450px;
+      border-radius: 15px;
+      transition: 0.3s ease-in-out;
+    }
+
+    .hero-image:hover {
+      transform: scale(1.05);
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <i class="fa-solid fa-book-open"></i> Bookify
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" th:classappend="${currentPage == 'home' ? 'active' : ''}" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" th:classappend="${currentPage == 'available_books' ? 'active' : ''}" href="/available_books">Available Books</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" th:classappend="${currentPage == 'my_books' ? 'active' : ''}" href="/my_books">My Books</a>
+          </li>
+        </ul>
+        <a href="/book_register" class="btn-register" th:classappend="${currentPage == 'book_register' ? 'disabled' : ''}">
+          <i class="fa-solid fa-plus"></i> Register New Book
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="hero-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <!-- Left: Text Content -->
+        <div class="col-md-6 text-md-start text-center">
+          <h1 class="hero-heading">
+            <span class="fade-text">Welcome to the</span>
+            <span class="highlight">New Book Store</span>
+          </h1>
+
+          <p>
+            Discover a world of books at our online store. Whether you're looking for bestsellers,
+            classics, or new arrivals, we have it all. Start your reading journey today!
+          </p>
+          <a href="available_books" class="btn btn-primary btn-lg">
+            📖 Browse Books
+          </a>
+        </div>
+
+        <!-- Right: Image -->
+        <div class="col-md-6">
+          <div class="image-wrapper">
+            <img src="/images/bg.png" alt="Books" class="hero-image img-fluid">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
