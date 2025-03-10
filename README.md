@@ -1,1 +1,1 @@
-# Bookify---Online-Book-Store-Application
+# Bookify | Online Book Store Application
